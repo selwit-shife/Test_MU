@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="basic-1Flow" doc:id="0eb640be-ca4b-42c4-987a-e9cf5057342e" >
+		<http:listener doc:name="Listener" doc:id="f1aee972-8caa-4bbf-90f7-971e4664c14e" config-ref="HTTP_Listener_config" path="/main" allowedMethods="GET"/>
+		<flow-ref doc:name="Flow Reference" doc:id="69530e06-93ab-4fbc-a69b-e0f68b8fcd31" name="basicsFlow3"/>
+		<set-payload value='"Main"' doc:name="Set Payload" doc:id="8973d1c2-6493-4c5d-84d2-43c77ad4d5de" mimeType="application/json"/>
+		<logger level="INFO" doc:name="Logger" doc:id="1ddfba7b-2946-4d68-9731-666bb19168b9" message="#[payload]"/>
+	</flow>
+</mule>
